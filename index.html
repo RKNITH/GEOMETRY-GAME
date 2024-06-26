@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Geometry World</title>
+	<style>
+		#gamePane {
+			display: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		#canvasPane {
+			float: left;
+		}
+
+		#inventoryPane {
+			margin: 0 0.5em;
+			writing-mode: vertical-lr;
+		}
+
+		#editorPane {
+			font-size: 26pt;
+			font-family: Verdana, sans-serif;
+			z-index: 10;
+		}
+
+		#startButton {
+			background-color: #ffd700;
+			font-family: 'Arial';
+			font-color: #000000;
+			font-size: 40px;
+			margin-left: 50px;
+		}
+
+		#startButton:hover {
+			background-color: #ffff00;
+			font-family: 'Arial';
+			font-color: #000000;
+			font-size: 40px;
+			margin-left: 50px;
+		}
+
+		#resetButton {
+			background-color: #ffd700;
+			font-family: 'Arial';
+			font-color: #000000;
+			font-size: 18px;
+		}
+
+		#resetButton:hover {
+			background-color: #ffff00;
+			font-family: 'Arial';
+			font-color: #000000;
+			font-size: 18px;
+		}
+
+		#showButton {
+			background-color: #ffd700;
+			font-family: 'Arial';
+			font-color: #000000;
+			font-size: 18px;
+		}
+
+		#showButton:hover {
+			background-color: #ffff00;
+			font-family: 'Arial';
+			font-color: #000000;
+			font-size: 18px;
+		}
+
+		div.editor {
+			margin: 0.5em 1em;
+			padding: 0.5em 0.75em;
+			border: 1px solid red;
+			background: #ffe6e6;
+			display: none;
+		}
+
+		span.card {
+			display: inline-block;
+			font-size: 24pt;
+			font-family: Verdana, sans-serif;
+			font-weight: bold;
+			border: 2px solid black;
+			padding: 0.15em 0;
+			height: 1.33em;
+			width: 2.25em;
+			background: white;
+			text-align: center;
+		}
+
+		span.card.ui-state-active {
+			border: 2px solid red;
+			background: yellow;
+		}
+
+		span.card.ui-state-hover {
+			border: 2px solid yellow;
+			background: black;
+			color: yellow;
+		}
+
+		div.card {
+			float: left;
+			cursor: pointer;
+			z-index: 11;
+			margin: 0.2em;
+		}
+
+		div.card.ui-draggable-dragging {
+			z-index: 50;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>Geometry World</h1>
+
+	<div id="splashPane">
+		<button id="showButton" onclick="hideCredits()">Hide Info</button>
+		<h2>Instructions</h2>
+		<div>
+			<p>
+			<ul>
+				<li>Move the robot using the arrow keys.</li>
+				<li>Click on black lines to edit them.</li>
+				<li>Drag numbers from the side of the screen into line parameters to edit them.</li>
+				<li>Collect all the stars to win!</li>
+			</ul>
+			</p>
+		</div>
+
+
+	</div>
+	<div id="startPane">
+		<button id="startButton" onclick="startGame()">Start!</button>
+	</div>
+
+	<div id="gamePane">
+
+		<div id="controlPane">
+			<button id="showButton" onclick="showCredits()">Show Info</button>
+			<button id="resetButton" onclick="resetGame()">Reset Game</button>
+		</div>
+
+		<div id="canvasPane">
+			<canvas id="geoworld-canvas" width="800" height="800" style="border: 1px solid #ccc; display: block;">Sorry,
+				your browser does not support the <code>&lt;canvas&gt;</code> element.</canvas>
+		</div>
+
+		<div id="inventoryPane">
+		</div>
+
+		<div id="editorPane">
+		</div>
+
+	</div>
+
+	<script src="assets/jquery-2.1.0.min.js"></script>
+	<script src="assets/jquery-ui.js"></script>
+	<script src="assets/createjs-2013.12.12.min.js"></script>
+
+	<script src="assets/editor.js"></script>
+	<script src="assets/line.js"></script>
+	<script src="assets/cards.js"></script>
+	<script src="assets/player.js"></script>
+	<script src="assets/keycontrols.js"></script>
+	<script src="assets/levelgenerator.js"></script>
+	<script src="assets/background.js"></script>
+	<script src="assets/geometrydemo.js"></script>
+
+	<script>
+		new Audio("assets/01-Watching-Kristian Taus-vbr.mp3").play();
+	</script>
+</body>
+
+</html>
